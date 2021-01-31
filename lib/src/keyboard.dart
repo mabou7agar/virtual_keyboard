@@ -61,6 +61,7 @@ class _VirtualKeyboardState extends State<VirtualKeyboard> {
 
   // True if shift is enabled.
   bool isShiftEnabled = false;
+  bool isArabic = false;
 
   @override
   void didUpdateWidget(Widget oldWidget) {
@@ -252,6 +253,9 @@ class _VirtualKeyboardState extends State<VirtualKeyboard> {
       case VirtualKeyboardKeyAction.Space:
         actionKey = actionKey = Icon(Icons.space_bar, color: textColor);
         break;
+        case VirtualKeyboardKeyAction.ChangeLanguage:
+        actionKey = actionKey = Icon(Icons.language, color: textColor);
+        break;
       case VirtualKeyboardKeyAction.Return:
         actionKey = Icon(
           Icons.keyboard_return,
@@ -269,6 +273,13 @@ class _VirtualKeyboardState extends State<VirtualKeyboard> {
                 isShiftEnabled = !isShiftEnabled;
               });
             }
+          }
+          if (key.action == VirtualKeyboardKeyAction.ChangeLanguage) {
+              setState(() {
+                if(_keyRowsAr == _keyRows) _keyRows = _keyRowsEn;
+                else _keyRows = _keyRowsAr;
+              });
+
           }
 
           onKeyPress(key);

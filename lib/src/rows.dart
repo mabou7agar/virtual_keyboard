@@ -1,7 +1,7 @@
 part of virtual_keyboard;
 
 /// Keys for Virtual Keyboard's rows.
-const List<List> _keyRows = [
+const List<List> _keyRowsEn = [
   // Row 1
   const [
     '1',
@@ -62,6 +62,71 @@ const List<List> _keyRows = [
   ]
 ];
 
+
+const List<List> _keyRowsAr = [
+  // Row 1
+  const [
+    '١',
+    '٢',
+    '٣',
+    '٤',
+    '٥',
+    '٦',
+    '٧',
+    '٨',
+    '٩',
+    '٠',
+  ],
+  // Row 2
+  const [
+    'ض',
+    'ص',
+    'ث',
+    'ق',
+    'ف',
+    'غ',
+    'ع',
+    'ه',
+    'خ',
+    'ح',
+    'ج',
+  ],
+  // Row 3
+  const [
+    'ش',
+    'س',
+    'ي',
+    'ب',
+    'ل',
+    'ا',
+    'ت',
+    'ن',
+    'م',
+    'ك',
+    'د',
+  ],
+  // Row 4
+  const [
+    'ذ',
+    'ئ',
+    'ء',
+    'ؤ',
+    'ر',
+    'ى',
+    'ة',
+    'و',
+    'ز',
+    'ظ',
+  ],
+  // Row 5
+  const [
+    '@',
+    '_',
+  ]
+];
+
+List<List> _keyRows = _keyRowsAr;
+
 /// Keys for Virtual Keyboard's rows.
 const List<List> _keyRowsNumeric = [
   // Row 1
@@ -91,6 +156,7 @@ const List<List> _keyRowsNumeric = [
 
 /// Returns a list of `VirtualKeyboardKey` objects for Numeric keyboard.
 List<VirtualKeyboardKey> _getKeyboardRowKeysNumeric(rowNum) {
+
   // Generate VirtualKeyboardKey objects for each row.
   return List.generate(_keyRowsNumeric[rowNum].length, (int keyNum) {
     // Get key string value.
@@ -159,7 +225,7 @@ List<List<VirtualKeyboardKey>> _getKeyboardRows() {
         rowKeys.add(
           VirtualKeyboardKey(
               keyType: VirtualKeyboardKeyType.Action,
-              action: VirtualKeyboardKeyAction.Shift),
+              action: VirtualKeyboardKeyAction.ChangeLanguage),
         );
 
         // String keys.
